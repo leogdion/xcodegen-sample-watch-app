@@ -1,0 +1,21 @@
+name: xcodegen-sample-watch-app
+options:
+  bundleIdPrefix: com.brightdigit
+targets:
+  xcodegen-sample-watch-app-WatchKit-App-Extension:
+    type: watchkit2-extension
+    platform: watchOS
+    sources: 
+      - "xcodegen-sample-watch-app WatchKit Extension"
+  xcodegen-sample-watch-app-WatchKit-App:
+    type: application.watchapp2
+    platform: watchOS
+    dependencies:
+      - target: "xcodegen-sample-watch-app-WatchKit-App-Extension"
+    sources: 
+      - "xcodegen-sample-watch-app WatchKit App"
+  xcodegen-sample-watch-app:
+    type: application.watchapp2-container
+    platform: watchOS
+    dependencies:
+      - target: "xcodegen-sample-watch-app-WatchKit-App"
