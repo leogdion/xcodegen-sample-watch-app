@@ -167,7 +167,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9663B698780F0D0D8C8F896D /* Build configuration list for PBXNativeTarget "xcodegen-sample-watch-app-WatchKit-App.watchkitapp" */;
 			buildPhases = (
-				DB0D712DDCF706E669593561 /* Sources */,
 				456064E4CC7DED311D9B1D03 /* Resources */,
 				20253D2B46F80F933314176F /* Embed App Extensions */,
 			);
@@ -185,7 +184,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1036EB72D7FE20F95FD89A9 /* Build configuration list for PBXNativeTarget "xcodegen-sample-watch-app-WatchKit-App" */;
 			buildPhases = (
-				0E34F5545828FAACE9D51D0E /* Sources */,
+				B38A43C423415D0D00C4A8EA /* Resources */,
 				7F45D117A58F0DBCF7EBAE45 /* Embed Watch Content */,
 			);
 			buildRules = (
@@ -207,19 +206,19 @@
 				LastUpgradeCheck = 1020;
 				TargetAttributes = {
 					07280ADEEA6C2A245C36E09E = {
+						CreatedOnToolsVersion = 11.1;
 						DevelopmentTeam = MLT7M394S7;
 						ProvisioningStyle = Automatic;
-						CreatedOnToolsVersion = 11.1;
 					};
 					725A30E3CBFFC4A9E0CACAEF = {
+						CreatedOnToolsVersion = 11.1;
 						DevelopmentTeam = MLT7M394S7;
 						ProvisioningStyle = Automatic;
-						CreatedOnToolsVersion = 11.1;
 					};
 					817C5DF9C71349083DD5BC0E = {
+						CreatedOnToolsVersion = 11.1;
 						DevelopmentTeam = MLT7M394S7;
 						ProvisioningStyle = Automatic;
-						CreatedOnToolsVersion = 11.1;
 					};
 				};
 			};
@@ -252,6 +251,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B38A43C423415D0D00C4A8EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B887D8BA40D86326CDA07D0D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,13 +270,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0E34F5545828FAACE9D51D0E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8FDA782E3E23230F56F76B38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,13 +277,6 @@
 				95046F038B0254D676E176BE /* ContentView.swift in Sources */,
 				F719B1B6912A224CB478A7DD /* ExtensionDelegate.swift in Sources */,
 				CB5455AEA1A6B1A1D4C54378 /* HostingController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB0D712DDCF706E669593561 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +334,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -416,24 +409,33 @@
 		83813B75D284042710F39F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GENERATE_PKGINFO_FILE = YES;
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brightdigit.xcodegen-sample-watch-app-WatchKit-App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		95C8AB755E7944D1E708A619 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GENERATE_PKGINFO_FILE = YES;
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brightdigit.xcodegen-sample-watch-app-WatchKit-App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 		A3D8C220F361B03933FD647C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				IBSC_MODULE = "$(PRODUCT_MODULE_NAME)_extension";
 				INFOPLIST_FILE = plists/App/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brightdigit.xcodegen-sample-watch-app-WatchKit-App.watchkitapp";
 				SDKROOT = watchos;
@@ -452,6 +454,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -501,6 +504,9 @@
 		FCC2E7C2DEEA394BD8F190D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				IBSC_MODULE = "$(PRODUCT_MODULE_NAME)_extension";
 				INFOPLIST_FILE = plists/App/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.brightdigit.xcodegen-sample-watch-app-WatchKit-App.watchkitapp";
 				SDKROOT = watchos;
