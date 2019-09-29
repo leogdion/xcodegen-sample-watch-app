@@ -1,21 +1,46 @@
 name: xcodegen-sample-watch-app
 options:
   bundleIdPrefix: com.brightdigit
+settings:
+  DEVELOPMENT_TEAM: MLT7M394S7
+  CODE_SIGN_IDENTITY: "Apple Development"
+  CODE_SIGN_STYLE: Automatic
+  MARKETING_VERSION: "1.0"
+  CURRENT_PROJECT_VERSION: "4"
+  SDKROOT: iphoneos
 targets:
-  xcodegen-sample-watch-app-WatchKit-App-Extension:
+  xcodegen-sample-watch-app-WatchKit-App.watchkitapp.watchkitextension:
     type: watchkit2-extension
     platform: watchOS
     sources: 
       - "xcodegen-sample-watch-app WatchKit Extension"
-  xcodegen-sample-watch-app-WatchKit-App:
+      - "plists/Ext"
+    info: 
+      path: plists/Ext/Info.plist
+      properties:
+        WKWatchOnly: true
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+            NSExtensionAttributes:
+              WKAppBundleIdentifier : com.brightdigit.xcodegen-sample-watch-app-WatchKit-App.watchkitapp
+            NSExtensionPointIdentifier: com.apple.watchkit
+  xcodegen-sample-watch-app-WatchKit-App.watchkitapp:
     type: application.watchapp2
     platform: watchOS
     dependencies:
-      - target: "xcodegen-sample-watch-app-WatchKit-App-Extension"
+      - target: "xcodegen-sample-watch-app-WatchKit-App.watchkitapp.watchkitextension"
     sources: 
       - "xcodegen-sample-watch-app WatchKit App"
-  xcodegen-sample-watch-app:
+      - "plists/App"
+    info:
+      path: plists/App/Info.plist
+      properties:
+        WKWatchKitApp: true
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+  xcodegen-sample-watch-app-WatchKit-App:
     type: application.watchapp2-container
     platform: watchOS
     dependencies:
-      - target: "xcodegen-sample-watch-app-WatchKit-App"
+      - target: "xcodegen-sample-watch-app-WatchKit-App.watchkitapp"
