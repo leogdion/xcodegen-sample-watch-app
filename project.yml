@@ -6,7 +6,7 @@ settings:
   CODE_SIGN_IDENTITY: "Apple Development"
   CODE_SIGN_STYLE: Automatic
   MARKETING_VERSION: "1.0"
-  CURRENT_PROJECT_VERSION: "4"
+  CURRENT_PROJECT_VERSION: "5"
   SDKROOT: iphoneos
 targets:
   xcodegen-sample-watch-app-WatchKit-App.watchkitapp.watchkitextension:
@@ -19,6 +19,7 @@ targets:
       path: plists/Ext/Info.plist
       properties:
         WKWatchOnly: true
+        CFBundleDisplayName: "SampleWatch"
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
@@ -28,6 +29,8 @@ targets:
   xcodegen-sample-watch-app-WatchKit-App.watchkitapp:
     type: application.watchapp2
     platform: watchOS
+    settings:
+        ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
     dependencies:
       - target: "xcodegen-sample-watch-app-WatchKit-App.watchkitapp.watchkitextension"
     sources: 
@@ -41,6 +44,6 @@ targets:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
   xcodegen-sample-watch-app-WatchKit-App:
     type: application.watchapp2-container
-    platform: watchOS
+    platform: iOS
     dependencies:
       - target: "xcodegen-sample-watch-app-WatchKit-App.watchkitapp"

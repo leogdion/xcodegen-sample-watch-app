@@ -1,0 +1,6 @@
+{
+"set" : "xcodegen-sample-watch-app WatchKit App/Assets.xcassets/AppIcon.appiconset",
+"source" : "geometry.svg",
+"background" : "#FFFFFF",
+"remove-alpha" : true
+}
